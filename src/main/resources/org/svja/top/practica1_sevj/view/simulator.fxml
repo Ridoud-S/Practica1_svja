@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.svja.top.practica1_sevj.controller.SimulatorController">
+    <top>
+        <Label text="Weight Loss Running "
+        BorderPane.alignment="CENTER"
+        style="-fx-font-size:20px; -fx-font-weight: bold;" >
+            <BorderPane.margin>
+                <Insets top="15" bottom="15"/>
+            </BorderPane.margin>
+        </Label>
+    </top>
+    <center>
+        <HBox spacing="30">
+            <BorderPane.margin>
+                <Insets top="20" left="20" right="20"/>
+            </BorderPane.margin>
+
+            <!-- ===== LEFT: USER INPUT ===== -->
+            <VBox spacing="15">
+                <Label text="User Data"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Current weight (kg):"/>
+                    <TextField fx:id="txtWeight" GridPane.columnIndex="1"/>
+
+                    <Label text="Kilos to lose:" GridPane.rowIndex="1"/>
+                    <TextField fx:id="txtKilos" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Running speed (km/h):" GridPane.rowIndex="2"/>
+                    <TextField fx:id="txtSpeed" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Minutes per session:" GridPane.rowIndex="3"/>
+                    <TextField fx:id="txtMinutes" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                </GridPane>
+
+                <Button text="Calculate"
+                        onAction="#handleCalculate"
+                        maxWidth="Infinity"/>
+            </VBox>
+
+            <!-- ===== RIGHT: RESULTS ===== -->
+            <VBox spacing="15">
+                <Label text="Results"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Total calories:"/>
+                    <Label fx:id="lblTotalCalories" GridPane.columnIndex="1"/>
+
+                    <Label text="Calories per minute:" GridPane.rowIndex="1"/>
+                    <Label fx:id="lblCaloriesPerMinute" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Calories per hour:" GridPane.rowIndex="2"/>
+                    <Label fx:id="lblCaloriesPerHour" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Total hours:" GridPane.rowIndex="3"/>
+                    <Label fx:id="lblTotalHours" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                </GridPane>
+
+                <Separator/>
+
+                <Label text="Sessions needed"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="8">
+                    <Label text="30 min:"/>
+                    <Label fx:id="lblSessions30" GridPane.columnIndex="1"/>
+
+                    <Label text="45 min:" GridPane.rowIndex="1"/>
+                    <Label fx:id="lblSessions45" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="60 min:" GridPane.rowIndex="2"/>
+                    <Label fx:id="lblSessions60" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="75 min:" GridPane.rowIndex="3"/>
+                    <Label fx:id="lblSessions75" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="90 min:" GridPane.rowIndex="4"/>
+                    <Label fx:id="lblSessions90" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                    <Label text="120 min:" GridPane.rowIndex="5"/>
+                    <Label fx:id="lblSessions120" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                </GridPane>
+            </VBox>
+        </HBox>
+    </center>
+
+    <!-- ================= BOTTOM ================= -->
+    <bottom>
+        <VBox alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="15" bottom="10"/>
+            </BorderPane.margin>
+
+            <Label text="Developed by Jaime Serrano Vázquez"
+                   style="-fx-font-size: 11px;"/>
+            <Label text="jaime@email.com | github.com/jaimesv"
+                   style="-fx-font-size: 11px;"/>
+        </VBox>
+    </bottom>
+
+
+
+</BorderPane>
