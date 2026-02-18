@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.svja.top.practica1_sevj.model.Simulator;
@@ -22,7 +23,8 @@ public class SimulatorController {
     // ── Inputs ──────────────────────────────────────────────
     @FXML private TextField txtWeight;
     @FXML private TextField txtKilos;
-    @FXML private TextField txtSpeed;
+    @FXML private Slider sliderSpeed;
+    @FXML private Label lblSpeedValue;
     @FXML private TextField txtMinutes;
 
     // ── Result labels ────────────────────────────────────────
@@ -39,18 +41,38 @@ public class SimulatorController {
     @FXML private Label lblSessions90;
     @FXML private Label lblSessions120;
 
-    // caches para el historial de usuarios
+    // ── Cached session values (needed to save User) ───────
     private int s30, s45, s60, s75, s90, s120;
     private boolean calculated = false;
 
-
+    // ────────────────────────────────────────────────────────
     @FXML
     private void initialize() {
         model = new Simulator();
         clearResults();
+        configureSlider();
     }
 
-    // manejadores
+    // ── Slider configuration ─────────────────────────────────
+    private void configureSlider() {
+        // Slider de 0 a 15 km/h
+        sliderSpeed.setMin(0);
+        sliderSpeed.setMax(15);
+        sliderSpeed.setValue(10);  // valor inicial
+        sliderSpeed.setShowTickLabels(true);
+        sliderSpeed.setShowTickMarks(true);
+        sliderSpeed.setMajorTickUnit(5);
+        sliderSpeed.setMinorTickCount(4);
+        sliderSpeed.setBlockIncrement(1);
+
+        // Actualizar label en tiempo real
+        lblSpeedValue.setText(String.format("%.1f km/h", sliderSpeed.getValue()));
+        sliderSpeed.valueProperty().addListener((obs, oldVal, newVal) -> {
+            lblSpeedValue.setText(String.format("%.1f km/h", newVal.doubleValue()));
+        });
+    }
+
+    // ── Handlers ─────────────────────────────────────────────
 
     @FXML
     private void handleCalculate() {
@@ -88,7 +110,6 @@ public class SimulatorController {
                             "/org/svja/top/practica1_sevj/view/historial-view.fxml"
                     )
             );
-
             Parent root = loader.load();
 
             Stage stage = new Stage();
@@ -103,7 +124,7 @@ public class SimulatorController {
         }
     }
 
-
+    // helpers privados
 
     /**
      * Lee y valida los campos del usuario.
@@ -113,7 +134,7 @@ public class SimulatorController {
         try {
             double weight  = Double.parseDouble(txtWeight.getText().trim());
             double kilos   = Double.parseDouble(txtKilos.getText().trim());
-            double speed   = Double.parseDouble(txtSpeed.getText().trim());
+            double speed   = sliderSpeed.getValue();
             int    minutes = Integer.parseInt(txtMinutes.getText().trim());
 
             if (weight <= 0 || kilos <= 0 || speed <= 0 || minutes <= 0) {
@@ -132,7 +153,7 @@ public class SimulatorController {
         } catch (NumberFormatException e) {
             showAlert(Alert.AlertType.ERROR,
                     "Formato incorrecto",
-                    "Por favor ingresa sólo números válidos en todos los campos.");
+                    "Por favor ingresa sólo números válidos en los campos de texto.");
             return false;
         }
     }

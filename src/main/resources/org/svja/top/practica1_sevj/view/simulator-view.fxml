@@ -26,21 +26,29 @@
                 <Insets top="20" left="20" right="20"/>
             </BorderPane.margin>
 
-            <!-- ── LEFT: datos del user ── -->
+            <!-- ── LEFT: datos del usuario ── -->
             <VBox spacing="15">
                 <Label text="User Data"
                        style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
 
-                <GridPane hgap="10" vgap="10">
+                <GridPane hgap="10" vgap="12">
+                    <!-- Peso actual -->
                     <Label text="Current weight (kg):"/>
                     <TextField fx:id="txtWeight" GridPane.columnIndex="1"/>
 
+                    <!-- Kilos a perder -->
                     <Label text="Kilos to lose:" GridPane.rowIndex="1"/>
                     <TextField fx:id="txtKilos" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-                    <Label text="Running speed (km/h):" GridPane.rowIndex="2"/>
-                    <TextField fx:id="txtSpeed" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <!-- Velocidad (SLIDER) -->
+                    <Label text="Running speed:" GridPane.rowIndex="2"/>
+                    <VBox GridPane.rowIndex="2" GridPane.columnIndex="1" spacing="5">
+                        <Slider fx:id="sliderSpeed" prefWidth="180"/>
+                        <Label fx:id="lblSpeedValue" text="10.0 km/h"
+                               style="-fx-font-size: 11px; -fx-text-fill: #555;"/>
+                    </VBox>
 
+                    <!-- Minutos por sesión -->
                     <Label text="Minutes per session:" GridPane.rowIndex="3"/>
                     <TextField fx:id="txtMinutes" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
                 </GridPane>
@@ -119,7 +127,7 @@
             </BorderPane.margin>
             <Label text="Developed by Jaime Serrano Vázquez"
                    style="-fx-font-size: 11px;"/>
-            <Label text="jaime@email.com | github.com/jaimesv"
+            <Label text="24031004@itcelaya.edu.mx | github.com/Ridoud-S"
                    style="-fx-font-size: 11px;"/>
         </VBox>
     </bottom>
