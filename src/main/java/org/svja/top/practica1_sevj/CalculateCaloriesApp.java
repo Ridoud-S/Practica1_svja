@@ -7,10 +7,12 @@ import javafx.stage.Stage;
 
 public class CalculateCaloriesApp extends Application {
 
+
+
     @Override
     public void start(Stage stage) throws Exception {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/svja/top/practica1_sevj/view/simulator.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/svja/top/practica1_sevj/view/simulator.view.fxml"));
         Scene scene = new Scene(loader.load(), 900, 600);
         stage.setTitle("Weight Loss Simulator");
         stage.setScene(scene);

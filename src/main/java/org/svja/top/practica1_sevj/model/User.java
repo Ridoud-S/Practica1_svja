@@ -27,13 +27,9 @@ public class User {
     private int sessions90;
     private int sessions120;
 
-    /**
-     * Constructor de conveniencia: crea un Usuario desde un Simulator
-     * ya calculado más los resultados de sesiones.
-     */
     public static User fromSimulator(Simulator sim,
-                                        int s30, int s45, int s60,
-                                        int s75, int s90, int s120) {
+                                     int s30, int s45, int s60,
+                                     int s75, int s90, int s120) {
         User u = new User();
         u.setCurrentWeight(sim.getCurrentWeight());
         u.setTargetWeightLoss(sim.getTargetWeightLoss());

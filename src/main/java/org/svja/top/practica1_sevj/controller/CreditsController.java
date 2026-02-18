@@ -18,7 +18,7 @@ public class CreditsController {
     }
 
     private void loadProfileInfo() {
-        imgProfile.setImage(new Image("/img/profile.png"));
+        imgProfile.setImage(new Image(getClass().getResourceAsStream("/images/profile.png")));
         lblName.setText("Jaime Alejandro Serrano Vázquez");
         lblEmail.setText("24031004@itcelaya.edu.mx");
         lblSocial.setText("github.com/Ridoud-s");

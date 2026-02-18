@@ -5,7 +5,7 @@ public class CalorieCalculator {
     private static final double CALORIES_PER_KG = 7700;
 
     public static double calculateCaloriesPerMinute(double weight, double metValue) {
-        return (metValue * weight * 3.5) / 200;
+        return (metValue * weight * 3.5) / 200; 
     }
     public static double calculateCaloriesPerHour(double caloriesPerMinute) {
         return caloriesPerMinute *60;
