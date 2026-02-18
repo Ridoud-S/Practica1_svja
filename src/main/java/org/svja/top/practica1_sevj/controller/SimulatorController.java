@@ -84,7 +84,11 @@ public class SimulatorController {
     private void handleVerHistorial() {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/org/svja/top/practica1_sevj/historial-view.fxml"));
+                    getClass().getResource(
+                            "/org/svja/top/practica1_sevj/view/historial-view.fxml"
+                    )
+            );
+
             Parent root = loader.load();
 
             Stage stage = new Stage();
