@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.svja.top.practica1_sevj.controller.SimulatorController"
+            stylesheets="@../css/styles.css">
+
+    <top>
+        <VBox alignment="CENTER" spacing="5">
+            <BorderPane.margin>
+                <Insets top="20" bottom="15"/>
+            </BorderPane.margin>
+            <Label text="Weight Loss Running" styleClass="section-title" style="-fx-font-size: 24px;"/>
+            <Label text="Plan your running sessions to achieve your weight loss goals" styleClass="footer-label"/>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox spacing="25">
+            <BorderPane.margin>
+                <Insets top="10" left="30" right="30" bottom="20"/>
+            </BorderPane.margin>
+
+            <VBox spacing="18" styleClass="content-box" HBox.hgrow="ALWAYS">
+                <Label text="User Data" styleClass="section-title"/>
+
+                <GridPane hgap="15" vgap="15">
+                    <Label text="Current weight (kg):"/>
+                    <TextField fx:id="txtWeight" GridPane.columnIndex="1" promptText="e.g., 75"/>
+
+                    <Label text="Kilos to lose:" GridPane.rowIndex="1"/>
+                    <TextField fx:id="txtKilos" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="e.g., 5"/>
+
+                    <Label text="Running speed:" GridPane.rowIndex="2"/>
+                    <VBox GridPane.rowIndex="2" GridPane.columnIndex="1" spacing="6">
+                        <Slider fx:id="sliderSpeed" prefWidth="200"/>
+                        <Label fx:id="lblSpeedValue" text="10.0 km/h" styleClass="value-label"/>
+                    </VBox>
+
+                    <Label text="Minutes per session:" GridPane.rowIndex="3"/>
+                    <TextField fx:id="txtMinutes" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="e.g., 30"/>
+                </GridPane>
+
+                <Button text="Calculate Results" onAction="#handleCalculate" maxWidth="Infinity" styleClass="button-primary"/>
+
+                <Separator/>
+
+                <VBox spacing="10">
+                    <Label text="Session Management" styleClass="section-title" style="-fx-font-size: 13px;"/>
+                    <Button text="Save Session" onAction="#handleGuardar" maxWidth="Infinity"/>
+                    <Button text="View Session History" onAction="#handleVerHistorial" maxWidth="Infinity" styleClass="button-secondary"/>
+                </VBox>
+            </VBox>
+
+            <VBox spacing="18" styleClass="content-box" HBox.hgrow="ALWAYS">
+                <Label text="Results" styleClass="section-title"/>
+
+                <GridPane hgap="15" vgap="12">
+                    <Label text="Total calories:" style="-fx-font-weight: 600;"/>
+                    <Label fx:id="lblTotalCalories" GridPane.columnIndex="1" styleClass="result-label"/>
+
+                    <Label text="Calories per minute:" GridPane.rowIndex="1" style="-fx-font-weight: 600;"/>
+                    <Label fx:id="lblCaloriesPerMinute" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="result-label"/>
+
+                    <Label text="Calories per hour:" GridPane.rowIndex="2" style="-fx-font-weight: 600;"/>
+                    <Label fx:id="lblCaloriesPerHour" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="result-label"/>
+
+                    <Label text="Total hours needed:" GridPane.rowIndex="3" style="-fx-font-weight: 600;"/>
+                    <Label fx:id="lblTotalHours" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="result-label"/>
+                </GridPane>
+
+                <Separator/>
+
+                <Label text="Sessions Needed" styleClass="section-title" style="-fx-font-size: 14px;"/>
+
+                <GridPane hgap="20" vgap="10">
+                    <Label text="30 min:" style="-fx-font-weight: 500;"/>
+                    <Label fx:id="lblSessions30" GridPane.columnIndex="1" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                    <Label text="45 min:" GridPane.rowIndex="1" style="-fx-font-weight: 500;"/>
+                    <Label fx:id="lblSessions45" GridPane.rowIndex="1" GridPane.columnIndex="1" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                    <Label text="60 min:" GridPane.rowIndex="2" style="-fx-font-weight: 500;"/>
+                    <Label fx:id="lblSessions60" GridPane.rowIndex="2" GridPane.columnIndex="1" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                    <Label text="75 min:" GridPane.columnIndex="2" style="-fx-font-weight: 500;"/>
+                    <Label fx:id="lblSessions75" GridPane.columnIndex="3" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                    <Label text="90 min:" GridPane.rowIndex="1" GridPane.columnIndex="2" style="-fx-font-weight: 500;"/>
+                    <Label fx:id="lblSessions90" GridPane.rowIndex="1" GridPane.columnIndex="3" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                    <Label text="120 min:" GridPane.rowIndex="2" GridPane.columnIndex="2" style="-fx-font-weight: 500;"/>
+                    <Label fx:id="lblSessions120" GridPane.rowIndex="2" GridPane.columnIndex="3" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                </GridPane>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <VBox alignment="CENTER" spacing="2">
+            <BorderPane.margin>
+                <Insets top="10" bottom="12"/>
+            </BorderPane.margin>
+            <Label text="Developed by Jaime Serrano Vázquez" styleClass="footer-label"/>
+            <Label text="24031004@itcelaya.edu.mx | github.com/Ridoud-S" styleClass="footer-label"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>

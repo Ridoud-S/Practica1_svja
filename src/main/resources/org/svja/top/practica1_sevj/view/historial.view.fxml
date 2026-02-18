@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.svja.top.practica1_sevj.controller.HistorialController"
+            prefWidth="1150" prefHeight="580"
+            stylesheets="@../css/styles.css">
+
+    <top>
+        <VBox alignment="CENTER" spacing="5">
+            <BorderPane.margin>
+                <Insets top="20" bottom="15"/>
+            </BorderPane.margin>
+            <Label text="Session History" styleClass="section-title" style="-fx-font-size: 24px;"/>
+            <Label text="View and manage all your saved running sessions" styleClass="footer-label"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="12">
+            <BorderPane.margin>
+                <Insets left="25" right="25"/>
+            </BorderPane.margin>
+
+            <TableView fx:id="tableHistorial" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colPeso" text="Weight (kg)" prefWidth="90"/>
+                    <TableColumn fx:id="colKilos" text="To Lose (kg)" prefWidth="95"/>
+                    <TableColumn fx:id="colVelocidad" text="Speed (km/h)" prefWidth="100"/>
+                    <TableColumn fx:id="colMinutos" text="Min/Session" prefWidth="95"/>
+
+                    <TableColumn fx:id="colTotalCal" text="Total kcal" prefWidth="95"/>
+                    <TableColumn fx:id="colCalMin" text="kcal/min" prefWidth="85"/>
+                    <TableColumn fx:id="colCalHora" text="kcal/hour" prefWidth="90"/>
+                    <TableColumn fx:id="colHoras" text="Total Hours" prefWidth="95"/>
+
+                    <TableColumn fx:id="colS30" text="30 min" prefWidth="65"/>
+                    <TableColumn fx:id="colS45" text="45 min" prefWidth="65"/>
+                    <TableColumn fx:id="colS60" text="60 min" prefWidth="65"/>
+                    <TableColumn fx:id="colS75" text="75 min" prefWidth="65"/>
+                    <TableColumn fx:id="colS90" text="90 min" prefWidth="65"/>
+                    <TableColumn fx:id="colS120" text="120 min" prefWidth="70"/>
+                </columns>
+
+                <placeholder>
+                    <VBox alignment="CENTER" spacing="10">
+                        <Label text="No sessions saved yet" styleClass="footer-label" style="-fx-font-size: 14px;"/>
+                        <Label text="Calculate and save a session to see it here" styleClass="footer-label"/>
+                    </VBox>
+                </placeholder>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label fx:id="lblTotal" text="Total sessions: 0" style="-fx-font-size: 13px; -fx-font-weight: 600;"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox spacing="12" alignment="CENTER_RIGHT">
+            <BorderPane.margin>
+                <Insets top="15" bottom="20" left="25" right="25"/>
+            </BorderPane.margin>
+
+            <Button text="Refresh" onAction="#handleRefrescar" styleClass="button-secondary"/>
+            <Button text="Delete Selected" onAction="#handleEliminar" styleClass="button-danger"/>
+            <Button text="Clear All" onAction="#handleLimpiarTodo" styleClass="button-danger"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
